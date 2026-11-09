@@ -1,0 +1,363 @@
+/* ===== テーマ ===== */
+:root {
+  --bg: #F3F6F8;
+  --surface: #FFFFFF;
+  --fg: #15212C;
+  --muted: #5A6B79;
+  --line: #D5DEE5;
+  --accent: #1E5AA8;
+  --accent-soft: #E2ECF8;
+  --live: #1F7A4D;
+  --live-soft: #DDF1E6;
+  --todo: #9A6A12;
+  --nav-bg: rgba(243, 246, 248, .85);
+  --display: "Dela Gothic One", "Hiragino Kaku Gothic StdN", sans-serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F161D; --surface: #16202A; --fg: #E6EDF3; --muted: #93A4B3; --line: #2A3846;
+    --accent: #7FB0F0; --accent-soft: #1B2D44; --live: #6FD39F; --live-soft: #173226;
+    --todo: #E0B45C; --nav-bg: rgba(15, 22, 29, .85);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0F161D; --surface: #16202A; --fg: #E6EDF3; --muted: #93A4B3; --line: #2A3846;
+  --accent: #7FB0F0; --accent-soft: #1B2D44; --live: #6FD39F; --live-soft: #173226;
+  --todo: #E0B45C; --nav-bg: rgba(15, 22, 29, .85);
+  color-scheme: dark;
+}
+
+/* ===== 基本 ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .25s, color .25s;
+}
+
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img { max-width: 100%; }
+a { color: var(--accent); }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px max(16px, env(safe-area-inset-left, 0px)) 72px;
+  display: grid;
+  gap: 72px;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* 未記入の箇所(埋めたら class="todo" を外す) */
+.todo {
+  color: var(--todo);
+  border-bottom: 1px dashed var(--todo);
+  font-size: 14px;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* ===== ナビ ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--fg);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav ul { display: flex; gap: 4px; }
+
+.nav ul a {
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s, background-color .2s;
+}
+
+.nav ul a:hover,
+.nav ul a.active { color: var(--accent); background: var(--accent-soft); }
+
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== ヒーロー ===== */
+.hero { display: grid; gap: 18px; padding-top: 24px; }
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(48px, 11vw, 84px);
+  line-height: 1.05;
+  letter-spacing: .02em;
+}
+
+.hero h1 small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: .2em;
+  color: var(--accent);
+  margin-top: 12px;
+}
+
+.lead { font-size: 18px; max-width: 34em; }
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.facts li::before { content: "— "; color: var(--line); }
+
+/* ===== セクション ===== */
+section { display: grid; gap: 24px; }
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.sec-head h2 { font-size: 22px; font-weight: 700; }
+
+/* ===== 制作物(注文伝票風カード) ===== */
+.works { display: grid; gap: 24px; }
+
+.ticket {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+
+.ticket:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px -12px rgba(30, 90, 168, .35);
+}
+
+.ticket-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 22px;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ticket-body { padding: 22px; display: grid; gap: 14px; min-width: 0; }
+
+.ticket h3 { font-size: 21px; font-weight: 700; line-height: 1.4; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--live-soft);
+  color: var(--live);
+}
+
+.pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.pill.team { background: var(--accent-soft); color: var(--accent); }
+.pill.team::before { border-radius: 2px; animation: none; }
+
+@keyframes pulse { 50% { opacity: .35; } }
+
+dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  gap: 8px 14px;
+  font-size: 15px;
+}
+
+dt { color: var(--muted); font-size: 13px; padding-top: 2px; }
+dd { margin: 0; min-width: 0; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+/* ===== スキル ===== */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.skill {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+}
+
+.skill h3 { font-size: 16px; }
+.skill p { color: var(--muted); font-size: 14px; }
+
+/* ===== 資格 ===== */
+.cert {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cert time {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
+}
+
+.cert b { font-weight: 700; }
+.cert span { display: block; color: var(--muted); font-size: 13px; }
+
+/* ===== 連絡先 ===== */
+.contact { display: grid; gap: 10px; }
+
+.contact li {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+
+/* ===== フッター ===== */
+.foot {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.foot a { color: var(--muted); text-decoration: none; }
+.foot a:hover { color: var(--accent); }
+
+/* ===== スクロール時のフェードイン ===== */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .pill::before { animation: none; }
+}
+
+/* ===== スマホ ===== */
+@media (max-width: 560px) {
+  .pc { display: none; }
+  .nav ul { display: none; }
+  .wrap { gap: 56px; padding-top: 32px; }
+}
+
+@media (max-width: 480px) {
+  dl { grid-template-columns: 1fr; gap: 0; }
+  dt { padding-top: 8px; }
+  .cert, .contact li { grid-template-columns: 1fr; gap: 2px; }
+  .ticket-top, .ticket-body { padding-inline: 16px; }
+}

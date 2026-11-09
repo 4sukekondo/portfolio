@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>近藤 | Portfolio</title>
+  <meta name="description" content="Webサイト開発とJavaが得意な大学3年生・近藤のポートフォリオ。店舗で実運用中のモバイルオーダーサイトなどを掲載しています。">
+  <meta property="og:title" content="近藤 | Portfolio">
+  <meta property="og:description" content="Webサイト開発とJavaが得意な大学3年生のポートフォリオ">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1E5AA8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231E5AA8'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3E近%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // 保存済みテーマを描画前に適用(ちらつき防止)
+    document.documentElement.classList.add("js");
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <nav class="nav" aria-label="ページ内リンク">
+    <div class="nav-inner">
+      <a class="brand" href="#top">近藤</a>
+      <ul>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certs">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-btn" type="button" aria-label="ライト/ダークを切り替え">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="wrap" id="top">
+    <header class="hero reveal">
+      <span class="label">Portfolio</span>
+      <h1>近藤<small>WEB DEVELOPER / STUDENT</small></h1>
+      <p class="lead">Webサイト開発とJavaが得意な大学3年生です。<br class="pc">実際に現場で使われるものを作ることを大事にしています。</p>
+      <ul class="facts">
+        <li>複雑系 3年</li>
+        <li>愛知県出身</li>
+        <li>2028年卒予定 <em class="todo">要確認</em></li>
+      </ul>
+    </header>
+
+    <section aria-labelledby="works-h" id="works">
+      <header class="sec-head">
+        <h2 id="works-h">制作物</h2>
+        <span class="label">Works</span>
+      </header>
+      <div class="works">
+
+        <article class="ticket reveal">
+          <div class="ticket-top">
+            <span>No.01 · 個人開発</span>
+            <span class="todo">制作時期:あとで記入</span>
+          </div>
+          <div class="ticket-body">
+            <span class="pill">店舗で実運用中</span>
+            <h3>飲食店向けモバイルオーダーサイト</h3>
+            <p>アルバイト先の店舗のために作った、お客さんが自分のスマホから注文できるWebサイトです。現在も実際の営業で使われています。</p>
+            <dl>
+              <dt>役割</dt>
+              <dd>企画・設計・実装・運用まで一人で担当</dd>
+              <dt>開発の進め方</dt>
+              <dd>コードの大部分は生成AIを活用して作成。要件の整理、出力の確認・修正、店舗での動作確認を自分で行った</dd>
+              <dt>工夫した点</dt>
+              <dd><span class="todo">あとで記入(例:注文画面の分かりやすさ、混雑時の動作など)</span></dd>
+              <dt>技術</dt>
+              <dd class="tags"><span class="todo">使用技術をあとで記入</span></dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="ticket reveal">
+          <div class="ticket-top">
+            <span>No.02 · 大学 / チーム開発</span>
+            <span class="todo">制作時期:あとで記入</span>
+          </div>
+          <div class="ticket-body">
+            <span class="pill team">フロントエンドリーダー</span>
+            <h3>アプリケーションサポート用Webサイト</h3>
+            <p>大学の授業で、チームでアプリケーションのサポートサイトを開発しました。フロントエンドのリーダーとして画面設計と実装をまとめました。</p>
+            <dl>
+              <dt>役割</dt>
+              <dd>フロントエンドリーダー(チーム人数:<span class="todo">あとで記入</span>)</dd>
+              <dt>工夫した点</dt>
+              <dd><span class="todo">あとで記入(例:メンバー間の作業分担、デザインの統一など)</span></dd>
+              <dt>技術</dt>
+              <dd class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">HTML/CSS</span>
+              </dd>
+            </dl>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="skills-h" id="skills">
+      <header class="sec-head">
+        <h2 id="skills-h">スキル</h2>
+        <span class="label">Skills</span>
+      </header>
+      <div class="skills">
+        <div class="skill reveal">
+          <h3>Webサイト開発</h3>
+          <p>フロントエンドの設計・実装、チームでのUI統一</p>
+        </div>
+        <div class="skill reveal">
+          <h3>Java</h3>
+          <p>得意言語</p>
+        </div>
+        <div class="skill reveal">
+          <h3>Python / Flask</h3>
+          <p>大学でのWebアプリ開発</p>
+        </div>
+        <div class="skill reveal">
+          <h3>生成AIの活用</h3>
+          <p>AIを使った開発で、実運用まで持っていった経験</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="certs-h" id="certs">
+      <header class="sec-head">
+        <h2 id="certs-h">資格</h2>
+        <span class="label">Certifications</span>
+      </header>
+      <ol class="certs">
+        <li class="cert reveal">
+          <time datetime="2026-12">2026.12</time>
+          <div><b>基本情報技術者試験</b><span>受験予定</span></div>
+        </li>
+        <li class="cert reveal">
+          <time datetime="2027-02">2027.02</time>
+          <div><b>生成AIパスポート</b><span>受験予定</span></div>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="contact-h" id="contact">
+      <header class="sec-head">
+        <h2 id="contact-h">連絡先</h2>
+        <span class="label">Contact</span>
+      </header>
+      <ul class="contact reveal">
+        <!-- href を自分のURLに書き換えてください -->
+        <li><span class="label">GitHub</span><a href="#" class="todo">github.com/あとで記入</a></li>
+        <li><span class="label">Mail</span><a href="#" class="todo">あとで記入</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>&copy; <span id="year">2026</span> 近藤</small>
+    <a href="#top">↑ Top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
